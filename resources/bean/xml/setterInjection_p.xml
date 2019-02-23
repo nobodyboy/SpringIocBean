@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/util
+                        http://www.springframework.org/schema/util/spring-util.xsd">
+  
+  <bean id="mouse" class="com.starry.bean.xml.constructorInjection.Mouse" />
+  
+  <!-- 实例6
+  <bean id="computer" class="com.starry.bean.xml.setterInjection.Computer" 
+        p:mouse-ref="mouse" />
+  -->
+  <!-- 实例7  
+  <bean id="computer" class="com.starry.bean.xml.setterInjection.Computer" 
+        p:mouse-ref="mouse" 
+        p:name="hp"
+        p:price="5000">
+     <property name="cpuList">
+     	<list>
+     		<value>cpu1</value>
+     		<value>cpu2</value>
+     		<value>cpu3</value>
+     	</list>
+     </property>
+   </bean> 
+   -->
+   <!-- 实例8 -->
+   <util:list id="cpuListTemp">
+       <value>cpu1</value>
+       <value>cpu2</value>
+       <value>cpu3</value>
+   </util:list>  
+   <bean id="computer" class="com.starry.bean.xml.setterInjection.Computer" 
+        p:mouse-ref="mouse" 
+        p:name="hp"
+        p:price="5000"
+        p:cpuList-ref="cpuListTemp" />
+</beans>

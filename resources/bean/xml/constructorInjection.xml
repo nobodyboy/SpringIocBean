@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="mouse" class="com.starry.bean.xml.constructorInjection.Mouse" />
+  <!--  实例1
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer">
+  	<constructor-arg ref="mouse" />
+  </bean>
+   -->
+  
+  <!--  实例3
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer">
+  	<constructor-arg ref="mouse" />
+  	<constructor-arg name="name" value="HP" />
+  	<constructor-arg name="price" value="5000" />
+  </bean>
+   -->
+   <!-- 实例4 -->
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer">
+  	<constructor-arg ref="mouse" />
+  	<constructor-arg name="name" value="HP" />
+  	<constructor-arg name="price" value="5000" />
+  	<constructor-arg>
+  		<list>
+  			<value>cpu1</value>
+  			<value>cpu2</value>
+  			<value>cpu3</value>
+  		</list>
+  	</constructor-arg>
+  </bean>
+  
+  <!-- 实例4-引用列表 -->
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer">
+  	<constructor-arg ref="mouse" />
+  	<constructor-arg name="name" value="HP" />
+  	<constructor-arg name="price" value="5000" />
+  	<constructor-arg>
+  		<list>
+  			<ref bean="cpu1" />
+  			<ref bean="cpu2" />
+  			<ref bean="cpu3" />
+  		</list>
+  	</constructor-arg>
+  </bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="mouse" class="com.starry.bean.xml.constructorInjection.Mouse" />
+  
+  <!-- 实例1
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer" 
+        c:mouse-ref="mouse" />
+  --> 
+  <!-- 实例3
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer" 
+        c:mouse-ref="mouse" 
+        c:name="hp"
+        c:price="5000" />
+  -->  
+  <!-- 实例3
+  <bean id="computer" class="com.starry.bean.xml.constructorInjection.Computer" 
+        c:_0-ref="mouse" 
+        c:_1="hp"
+        c:_2="5000" />
+   -->
+   
+</beans>
